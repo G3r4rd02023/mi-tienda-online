@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TiendaOnline.Data;
 
@@ -11,9 +12,10 @@ using TiendaOnline.Data;
 namespace TiendaOnline.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221031175051_Users")]
+    partial class Users
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -419,15 +421,10 @@ namespace TiendaOnline.Migrations
             modelBuilder.Entity("TiendaOnline.Data.Entities.User", b =>
                 {
                     b.HasOne("TiendaOnline.Data.Entities.City", "City")
-                        .WithMany("Users")
+                        .WithMany()
                         .HasForeignKey("CityId");
 
                     b.Navigation("City");
-                });
-
-            modelBuilder.Entity("TiendaOnline.Data.Entities.City", b =>
-                {
-                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("TiendaOnline.Data.Entities.Country", b =>
