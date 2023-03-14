@@ -18,7 +18,7 @@ namespace Arrays
                     switch (option)
                     {
                         case 1:
-                            Console.Write("Ingrese númer de elementos: ");
+                            Console.Write("Ingrese número de elementos: ");
                             var nString = Console.ReadLine();
                             int n = 10;
                             int.TryParse(nString, out n);
